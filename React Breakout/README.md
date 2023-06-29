@@ -1,5 +1,5 @@
 # Breakout - React
-[Github Repository](https://github.com/Alfredo08/Breakouts/tree/main/React) | [Vimeo Video Recording](https://vimeo.com/840659343/2812de00fa?share=copy)
+[Github Repository](https://github.com/Alfredo08/Breakouts/tree/main/React%20Breakout) | [Vimeo Video Recording](https://vimeo.com/840659343/2812de00fa?share=copy)
 
 ## Topics to cover
 * [X] What is React?
