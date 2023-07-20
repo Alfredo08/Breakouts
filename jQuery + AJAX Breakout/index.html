@@ -3,22 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> jQuery + AJAX </title>
-        <link href="./css/index.css" rel="stylesheet">
+        <title> jQuery + AJAX Breakout using the News Org API</title>
+        <link href="./css/style.css" rel="stylesheet">
     </head>
     <body>
-        <h1> Getting some nice dog images </h1>
-        <form id="dogAPIForm">
-            <label for="numberOfDogs">
-                How many images do you want to fetch?
-            </label>
-            <input id="numberOfDogs" type="text" value="10">
-            <button class="dogSubmission" type="submit">
-                Search
-            </button>
+        <form class="news-form">
+            <div>
+                <label for="search-text"> What kind of news do you want to display? </label>
+                <input type="text" id="search-text">
+                <button type="submit"> Search </button>
+            </div>
         </form>
         <div class="results"></div>
-        <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
         <script src="./js/index.js"></script>
     </body>
 </html>
