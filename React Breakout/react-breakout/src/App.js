@@ -1,38 +1,47 @@
-import logo from './logo.svg';
-import React, {useEffect, useState} from 'react';
-import Dog from './components/Dog';
-
+import { useEffect, useState } from 'react';
 import './App.css';
+import Article from './components/Article';
 
-function App() {
+const App = () => {
   const [counter, setCounter] = useState(0);
-  const [images, setImages] = useState([]);
+  const [articles, setArticles] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const updateCounterByOne = (event) => {
+    console.log(event);
+    setCounter((prevCounter) => prevCounter + 1);
+  }
+
+  const updateCounterByFive = (event) => {
+    setCounter((prevCounter) => prevCounter + 1);
+    setCounter((prevCounter) => prevCounter + 1);
+    setCounter((prevCounter) => prevCounter + 1);
+    setCounter((prevCounter) => prevCounter + 1);
+    setCounter((prevCounter) => prevCounter + 1);
+  }
+
+  const retrieveArticles = (event) => {
+    event.preventDefault();
+    const currentSearchTerm = event.target.searchTerm.value;
+    setSearchTerm((prevSearchTerm) => currentSearchTerm);
+  }
 
   useEffect(() => {
-    const fetchDogs = async() => {
-      const response = await fetch("https://dog.ceo/api/breeds/image/random/10");
+    const fetchArticles = async() => {
+      const URL = `https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=e993fe0805de4ec0abaff5d967e9302a`;
+      const response = await fetch(URL);
       const data = await response.json();
-      setImages((previousImages) => data.message);
+      setArticles((prevArticles) => data.articles);
     }
-
-    fetchDogs();
-  }, []);
-
-  const updateCounterByOne = (e) => {
-    setCounter((previousCounter) => previousCounter + 1);
-  }
-
-  const updateCounterByFive = (e) => {
-    setCounter((previousCounter) => previousCounter + 1);
-    setCounter((previousCounter) => previousCounter + 1);
-    setCounter((previousCounter) => previousCounter + 1);
-    setCounter((previousCounter) => previousCounter + 1);
-    setCounter((previousCounter) => previousCounter + 1);
-  }
+    if(searchTerm !== ""){
+      fetchArticles();
+    }
+  }, [searchTerm]);
 
   return (
     <div className="App">
-      <h1> Hey there. You have clicked {counter} times the counter button. </h1>
+      <h1> Welcome to the React breakout </h1>
+      <p> You've clicked the button {counter} times! </p>
       <div>
         <button onClick={(e) => updateCounterByOne(e)}>
           Update counter by 1
@@ -43,9 +52,23 @@ function App() {
           Update counter by 5
         </button>
       </div>
-      <div>
-        {images.map((imageUrl, index) => {
-          return (<Dog imageUrl={imageUrl} key={index} updateCounterByOne={updateCounterByOne}/>);
+      <form onSubmit={(e) => retrieveArticles(e)}>
+        <div>
+          <label htmlFor="searchTerm">
+            Search criteria:
+          </label>
+          <input id="searchTerm" name="searchTerm"/>
+        </div>
+        <button type="submit">
+          Get the news!
+        </button>
+      </form>
+      <div className="results">
+        {articles.map((article, index) => {
+          return (<Article author={article.author}
+                           title={article.title}
+                           description={article.description}
+                           urlToImage={article.urlToImage}/>);
         })}
       </div>
     </div>

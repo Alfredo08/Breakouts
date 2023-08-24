@@ -1,5 +1,5 @@
 # Breakout - React
-[Github Repository](https://github.com/Alfredo08/Breakouts/tree/main/React%20Breakout) | [Vimeo Video Recording]()
+[Github Repository](https://github.com/Alfredo08/Breakouts/tree/main/React%20Breakout) | [Vimeo Video Recording](https://vimeo.com/857351963/c1354f0885?share=copy)
 
 ## Topics to cover
 * [X] What is React?
@@ -10,4 +10,4 @@
 
 ## Documentation links
 * [React docs](https://legacy.reactjs.org/docs/getting-started.html)
-* [Dog CEO API](https://dog.ceo/dog-api/documentation/)
+* [News API docs](https://newsapi.org/docs)
