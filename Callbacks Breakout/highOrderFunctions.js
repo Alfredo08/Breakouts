@@ -23,6 +23,8 @@ console.log(sortedNumbers);
 const sortedStudentsByAge = students.sort((student1, student2) => student2.ssn - student1.ssn);
 console.log(sortedStudentsByAge);
 
+/* reduce */
+
 /*
 
 const filteredNums = nums.filter((num) => num > 50);
