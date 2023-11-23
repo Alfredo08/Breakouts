@@ -1,0 +1,8 @@
+.drink-card{
+    display: flex;
+    gap: 15px;
+}
+
+.drink-image > img{
+    width: 300px;
+}

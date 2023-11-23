@@ -8,4 +8,4 @@
 
 ## Documentation links
 * [jQuery Docs](https://api.jquery.com/)
-* [News API Docs](https://newsapi.org/)
+* [The Cocktail DB](https://www.thecocktaildb.com/)

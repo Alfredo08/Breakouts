@@ -3,19 +3,22 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> jQuery + AJAX Breakout using the News Org API</title>
-        <link href="./css/style.css" rel="stylesheet">
+        <title> jQuery + AJAX Breakout </title>
+        <link rel="stylesheet" href="./css/styles.css">
     </head>
     <body>
-        <form class="news-form">
-            <div>
-                <label for="search-text"> What kind of news do you want to display? </label>
-                <input type="text" id="search-text">
-                <button type="submit"> Search </button>
-            </div>
+        <h1> The cocktail API </h1>
+        <form class="cocktail-info">
+            <label for="cocktail-name">
+                Cocktail name:
+            </label>
+            <input id="cocktail-name" name="cocktail-name" type="text">
+            <button>
+                Search
+            </button>
         </form>
         <div class="results"></div>
-        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
         <script src="./js/index.js"></script>
     </body>
 </html>

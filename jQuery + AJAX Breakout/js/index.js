@@ -1,46 +1,69 @@
-const BASE_URL = "https://newsapi.org";
-const token = "Place your API token here!";
 
-$newsForm = $('.news-form');
 
-$newsForm.on('submit', (event) => {
+$('.cocktail-info').on('submit', (event) => {
     event.preventDefault();
-    $searchText = $('#search-text').val();
-
-    const queryParams = {
-        //apiKey : token,
-        q : $searchText,
-        pageSize : 20 
-    };
-
+    const $searchTerm = $('#cocktail-name').val();
+    const URL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${$searchTerm}`;
+    /*
     $.ajax({
-        url : `${BASE_URL}/v2/everything`,
-        data : queryParams,
-        method : "GET",
-        headers : {
-            "X-Api-Key" : token
-        },
-        success : (responseJSON) => {
+        url: URL,
+        method: 'GET',
+        success: (responseJSON) => {
             $('.results').empty();
-            responseJSON.articles.forEach((article) => {
+            responseJSON.drinks.forEach((drink) => {
+                let ingredients = "";
+                for(let i = 0; drink['strIngredient'+(i+1)] != null; i ++){
+                    ingredients += `<li>${drink['strIngredient'+(i+1)]} ${drink['strMeasure'+(i+1)]}</li>`
+                }
+
                 $('.results').append(`
-                    <div class="article">
-                        <h2 class="article-title"> ${article.title} </h2>
-                        <div class="article-image">
-                            <img src="${article.urlToImage}" alt="${article.title}" >
+                    <h2>${drink.strDrink}</h2>
+                    <div class="drink-card">
+                        <div class="drink-image">
+                            <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}">
                         </div>
-                        <p class="article-author"> ${article.author} </p>
-                        <p class="article-description"> ${article.description} </p>
-                        <p> 
-                            <a target="_blank" href="${article.url}"> Take me to the article </a> 
-                        </p>
+                        <div class="drink-info">
+                            <h3> Ingredients </h3>
+                            <ul class="ingredients">
+                                ${ingredients}
+                            </ul>
+                            <h3> Instructions </h3>
+                            <p>${drink.strInstructions}</p>
+                        </div>
                     </div>
                 `);
             });
         },
-        error : (error) => {
-            console.log(error);
+        error: (err) => {
+            console.log(err);
         }
-    });
-    
+    }); */
+
+    $.get(URL)
+        .done((responseJSON) => {
+            $('.results').empty();
+            responseJSON.drinks.forEach((drink) => {
+                let ingredients = "";
+                for(let i = 0; drink['strIngredient'+(i+1)] != null; i ++){
+                    ingredients += `<li>${drink['strIngredient'+(i+1)]} ${drink['strMeasure'+(i+1)]}</li>`
+                }
+
+                $('.results').append(`
+                    <h2>${drink.strDrink}</h2>
+                    <div class="drink-card">
+                        <div class="drink-image">
+                            <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}">
+                        </div>
+                        <div class="drink-info">
+                            <h3> Ingredients </h3>
+                            <ul class="ingredients">
+                                ${ingredients}
+                            </ul>
+                            <h3> Instructions </h3>
+                            <p>${drink.strInstructions}</p>
+                        </div>
+                    </div>
+                `);
+            });
+        });
 });
