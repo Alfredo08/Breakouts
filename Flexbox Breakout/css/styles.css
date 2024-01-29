@@ -1,0 +1,55 @@
+div, nav, section, main, footer{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+nav{
+    /* height: 600px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; /* flex-start, center, flex-end */
+    gap: 15px;
+    /* align-items: flex-end; */
+}
+
+.container{
+    display: flex;
+}
+
+.menu-options{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.menu-item{
+    flex: 1;
+}
+
+.content{
+    flex: 4;
+}
+
+/*
+.menu-options-two{
+    flex: 2;
+}
+*/
+
+.content-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*
+.footer-item{
+    width: 30%;
+}
+*/
