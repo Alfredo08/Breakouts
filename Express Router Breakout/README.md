@@ -1,5 +1,5 @@
 # Breakout - Express Router
-[Github Repository]() | [Vimeo Video Recording]()
+[Github Repository](https://github.com/Alfredo08/Breakouts/tree/main/Express%20Router%20Breakout) | [Vimeo Video Recording]()
 
 ### The Router
 * Express has a built-in router that allows us to store routes in separate files
